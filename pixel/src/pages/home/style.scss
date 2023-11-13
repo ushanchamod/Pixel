@@ -1,0 +1,156 @@
+#app-home{
+  box-sizing: border-box;
+  #home-grid{
+    #image-card{
+      overflow: hidden;
+      box-sizing: border-box;
+      .mask1{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: none;
+        transition: ease-in-out 0.2s;
+        background: rgb(0,0,0);
+        background: radial-gradient(circle, rgba(0,0,0,0) 4%, rgba(0, 0, 0, 0.336) 100%);
+
+        &:hover{
+          cursor: zoom-in;
+        }
+      }
+
+      .make-heart{
+        position: absolute;
+        top: -100px;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 10px 10px 0 0;
+        box-sizing: border-box;
+        transition: ease-in-out all 0.3s;
+
+        .icon{
+          font-size: 17px;
+          padding: 10px 15px;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: ease-in-out 0.2s;
+          background-color: #ffffffc5;
+
+          &:hover{
+            background-color: #ffffff;
+          }
+        }
+
+        .icon-dark{
+          color: #afafaf;
+          
+        }
+        .icon-highlight{
+          color: rgb(252, 79, 79);
+        }
+
+      }
+
+      .mask2{
+        position: absolute;
+        // top: 100%;
+        bottom: -100px;
+        // background-color: rgb(46, 46, 46);
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: ease-in-out all 0.3s;
+        box-sizing: border-box;
+        padding: 15px 15px;
+
+        
+        
+        .user{
+          display: flex;
+          align-items: center;
+          .avatar{
+            width: 40px;
+            height: 40px;
+            box-sizing: border-box;
+            border: 2px solid #fff;
+            cursor: pointer;
+          }
+
+          .name-with-heart{
+            padding-left: 10px;
+
+            .name{
+              color: #fff;
+              font-size: 16px;
+              font-weight: 600;
+              font-family: Arial, Helvetica, sans-serif;
+              cursor: pointer;
+            }
+
+            .heart{
+              font-family: Arial, Helvetica, sans-serif;
+              font-size: 12px;
+              font-weight: 600;
+              display: flex;
+              align-items: center;
+              color: #fff;
+
+              span{
+                color: gold;
+                font-size: 15px;
+
+                .icon{}
+              }
+            }
+          }
+
+          
+          
+        }
+
+        .download-icon{
+          background-color: #ffffffc5;
+          padding: 7px 15px;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: ease-in-out 0.2s;
+          .icon{
+            width: 20px;
+            height: 20px;
+            color: #252525;
+          }
+
+          &:hover{
+            background-color: #ffffff;
+          }
+          &:active{
+            background-color: #ff9532;
+          }
+          
+        }
+      }
+
+      &:hover{
+        .mask1{
+          display: flex;
+        }
+        
+        .mask2{
+          top: auto;
+          bottom: 0;
+        }
+
+        .make-heart{
+          top: 0;
+        }
+      }
+
+    }
+
+  }
+}

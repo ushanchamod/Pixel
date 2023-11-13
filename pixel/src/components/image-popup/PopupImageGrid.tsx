@@ -2,7 +2,7 @@
 import Box from '@mui/material/Box';
 import ImageList from '@mui/material/ImageList';
 import { useEffect, useState } from 'react';
-import ImageCard from './ImageCard';
+import ImageCard from '../../pages/home/ImageCard';
 import { ImageDto } from '../../dto/image.dto';
 import { HomeScreenSizeControl } from '../../logics/HomeLogics';
 
@@ -58,7 +58,7 @@ const itemData: ImageDto[] = [
   },
 ];
 
-const HomeGrid = () => {
+const PopupImageGrid = () => {
   const[screen, setScreen] = useState({gap: 8, cols: 3})
 
 
@@ -89,4 +89,4 @@ const HomeGrid = () => {
   )
 }
 
-export default HomeGrid
+export default PopupImageGrid

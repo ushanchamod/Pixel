@@ -1,9 +1,11 @@
-import React from 'react'
+import './style.scss'
 import HomeGrid from './HomeGrid'
+import ImagePopup from '../../components/image-popup/ImagePopup'
 
 const Home = () => {
   return (
-    <div>
+    <div id='app-home'>
+      <ImagePopup />
       <HomeGrid />
     </div>
   )
