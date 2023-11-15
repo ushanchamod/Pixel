@@ -3,7 +3,10 @@ import Home from './pages/home/Home'
 import MainLayout from './layout/MainLayout'
 import AuthLayout from './layout/AuthLayout'
 import Login from './pages/auth/login/Login'
-import ImagePopup from './components/image-popup/ImagePopup'
+import Category from './pages/category/Category'
+import { ImagePopupContext } from './state/contax/ImagePopupContext'
+import { useState } from 'react'
+import { imagePopUpContext } from './dto/image.dto'
 
 const router = createBrowserRouter([
   
@@ -14,6 +17,10 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />
+      },
+      {
+        path: '/category/:categoryName',
+        element: <Category />
       }
     ]
   },
@@ -32,9 +39,15 @@ const router = createBrowserRouter([
 ])
 
 const Routers = () => {
+  const [imagePopup, setImagePopup] = useState<imagePopUpContext>({
+    id: -999,
+    open: false,
+  })
   return (
     <>
-    <RouterProvider router={router} />
+    <ImagePopupContext.Provider value={{imagePopup, setImagePopup}}>
+      <RouterProvider router={router} />
+    </ImagePopupContext.Provider>
     </>
   )
 }

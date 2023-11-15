@@ -1,13 +1,23 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import ImagePopupTopBar from './ImagePopupTopBar'
 import { FaMaximize, FaMinimize } from "react-icons/fa6";
 import './style.scss'
 import PopupImageGrid from './PopupImageGrid';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import { ImagePopupContext } from '../../state/contax/ImagePopupContext';
 
-const ImagePopup = () => {
+const ImagePopupClean = () => {
+  const {imagePopup, setImagePopup} = useContext(ImagePopupContext)
+
   const[maximize, setMaximize] = useState(false)
+
+  useEffect(() => {
+    console.log("ID: ", imagePopup.id);
+    
+  }, [imagePopup.id])
   return (
     <div id="image-popup-container">
+      <HighlightOffIcon className='popup-close' onClick={() => setImagePopup({id: -999, open: false})} />
       {maximize && (
         <div className='full-screen-image-popup'>
           <FaMinimize className='minimize-icon' onClick={() => setMaximize(false)} />
@@ -16,6 +26,7 @@ const ImagePopup = () => {
       )}
       <div className="card">
         <div className="top-bar-popup">
+        <HighlightOffIcon className='popup-close-mobile' onClick={() => setImagePopup({id: -999, open: false})} />
           <ImagePopupTopBar />
         </div>
 
@@ -61,4 +72,4 @@ const ImagePopup = () => {
   )
 }
 
-export default ImagePopup
+export default ImagePopupClean
