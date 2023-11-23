@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom'
+import Image from '../assets/hard_coded_images/login_background.jpg'
+import './style.scss'
 
 const AuthLayout = () => {
   const navigate = useNavigate()
@@ -12,8 +14,9 @@ const AuthLayout = () => {
   }, [])
   
   return (
-    <div>
-      <Outlet />
+    <div id='auth_layout'>
+      <div className="background"> <img src={Image} alt="background_image" /></div>
+      <div className="outlet"><Outlet /></div>
     </div>
   )
 }

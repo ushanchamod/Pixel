@@ -1,12 +1,28 @@
+// Genal imports
+import { useState, Suspense, lazy } from 'react'
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
-import Home from './pages/home/Home'
-import MainLayout from './layout/MainLayout'
-import AuthLayout from './layout/AuthLayout'
-import Login from './pages/auth/login/Login'
-import Category from './pages/category/Category'
+
+// MUI
+
+// Context
 import { ImagePopupContext } from './state/contax/ImagePopupContext'
-import { useState } from 'react'
 import { imagePopUpContext } from './dto/image.dto'
+
+// Pages
+import MainLayout from './layout/MainLayout'
+const Home = lazy(() => import('./pages/home/Home'))
+const Category = lazy(() => import('./pages/category/Category'))
+const AuthLayout = lazy(() => import('./layout/AuthLayout'))
+const Login = lazy(() => import('./pages/auth/login/Login'))
+const Register = lazy(() => import('./pages/auth/register/Register'))
+
+
+const Loading = () => {
+  return (
+    <div>Loading...</div>
+  )
+
+}
 
 const router = createBrowserRouter([
   
@@ -16,22 +32,26 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home />
+        element: <Suspense fallback={<Loading />}><Home /></Suspense>
       },
       {
         path: '/category/:categoryName',
-        element: <Category />
+        element: <Suspense fallback={<Loading />}><Category /></Suspense>
       }
     ]
   },
 
   {
     path: '/auth',
-    element: <AuthLayout />,
+    element: <Suspense fallback={<Loading />}><AuthLayout /></Suspense>,
     children: [
       {
         path: '/auth/login',
-        element: <Login />
+        element: <Suspense fallback={<Loading />}><Login /></Suspense>
+      },
+      {
+        path: '/auth/register',
+        element: <Suspense fallback={<Loading />}><Register /></Suspense>
       }
     ]
   }
