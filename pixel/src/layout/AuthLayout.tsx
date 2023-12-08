@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom'
 import Image from '../assets/hard_coded_images/login_background.jpg'
+import BackgroundVideo from '../assets/video/nature_animation_video.mp4'
 import './style.scss'
 
 const AuthLayout = () => {
@@ -15,8 +16,15 @@ const AuthLayout = () => {
   
   return (
     <div id='auth_layout'>
-      <div className="background"> <img src={Image} alt="background_image" /></div>
-      <div className="outlet"><Outlet /></div>
+      <div className="background">
+        <video autoPlay={true} muted playsInline loop >
+          <source src={BackgroundVideo} type="video/mp4" />
+          Sorry, your browser doesn't support videos.
+        </video>
+      </div>
+      <div className="outlet-container">
+        <div className="outlet"><Outlet /></div>
+      </div>
     </div>
   )
 }

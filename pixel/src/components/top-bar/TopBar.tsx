@@ -17,12 +17,12 @@ const TopBar = () => {
             <SearchBar />
           </div>
 
-          <div className="nav-link">
+          {/* <div className="nav-link">
             <NavLink to='/'>Home</NavLink>
             <NavLink to='/category'>Category</NavLink>
             <NavLink to='/profile'>Profile</NavLink>
 
-          </div>
+          </div> */}
         </div>
       </div>
 
